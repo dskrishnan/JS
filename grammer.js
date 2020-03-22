@@ -14,9 +14,9 @@ Multi line Comment */
 
 // Declaring a Variable:
 var myName = "dskrishnan"; //Declarations with 'var' is global. Not limited to the scope
-console.log("Value assigned to 'myName' is ", myName);
+//console.log("Value assigned to 'myName' is ", myName);
 myName = 8;
-console.log("New Value assigned to 'myName' is ", myName);
+//console.log("New Value assigned to 'myName' is ", myName);
 
 let anotherName = "disciple" //Declarations with Let is valid only with in the scope of execution.
 const pi = 3.14 //This is constant.
@@ -52,7 +52,7 @@ console.log("c = c + ' String' is : ", c = c + " String"); // Result is 'This is
 var welcome = "Hello";
 console.log("String assigned the variable 'welcome' is ",welcome);
 console.log("Value of undefined variable 'Welcome' is ",Welcome);
-Welcome = welcome; // This will result in error. Becase first Letter "w" & "W" are treated differently in JS.
+//Welcome = welcome; // This will result in error. Becase first Letter "w" & "W" are treated differently in JS.
 console.log("Value of 'Welcome' which is not declared in the first place but assigned a value is ",Welcome);
 
 //Arithmetic Operations
