@@ -6,7 +6,8 @@ console.log("Hello from JavaScript"); // This is also in-line comment. Result ca
 /* This is a
 Multi line Comment */
 
-/* Introduction to JavaScript
+/*************** Introduction to JavaScript **********************/
+/*
 
 Javascript is just a standard, more formally known as ECMAScript. It can be implemented in any language, 
 just like any standard. Chrome's Javascript engine, V8, is written in C++. Firefox's Javascript engine,
@@ -52,7 +53,7 @@ var number = 5;
     undefined, null, boolean, string, symbol, number, and object
 */
 
-// Declaring a Variable:
+/**************** Declaring a Variable: **************/
 var myName = "dskrishnan"; //Declarations with 'var' is global. Not limited to the scope
 //console.log("Value assigned to 'myName' is ", myName);
 myName = 8; // Assigning a different kind of value is allowed.
@@ -81,14 +82,14 @@ a = undefined;
     Any other value in JavaScript is Considered Truthy
  */
 
-// Initialization & Assignment
+/**********Initialization & Assignment***********/
 var a1 = 5;
 //console.log("a1 = a1 + 1 is : ", a1 = a1 + 1); // Result is 6
  
 var c = "This is a";
 //console.log("c = c + ' String' is : ", c = c + " String"); // Result is 'This is a String'
 
-// Case Sensitivity: JavaScript is Case sensitive. var testVariable & TestVariable are not Same
+/************Case Sensitivity: JavaScript is Case sensitive. var testVariable & TestVariable are not Same*****/
 var welcome = "Hello"; // This is a defined declaration of variable.
 var Welcome; // This is an undefined declaration of variable.
 //console.log("String assigned the variable 'welcome' is ",welcome);
@@ -96,7 +97,7 @@ var Welcome; // This is an undefined declaration of variable.
 Welcome = welcome; // This will result in error. Becase first Letter "w" & "W" are treated differently in JS.
 //console.log("New Value assigned to the variable 'Welcome' is ", Welcome);
 
-// JavaScript is a Weakly Typed Language. For example,
+/**************** JavaScript is a Weakly Typed Language. For example,***********/
 var integerThree = 3; var stringFour = '4';
 /*
 console.log("3 + '4' = ",integerThree + stringFour," --> Such a Weird result, this is why JS is a weakly typed language"); //Answer is 47
@@ -105,7 +106,8 @@ console.log("2 + true = ", 2 + true, " --> Such a Weird result, this is why JS i
 console.log("false - 3 = ", false - 3, " --> Such a Weird result, this is why JS is a weakly typed language"); //Answer is -3
 
 
-// Explicit Conversions in JS
+/***********Explicit Conversions in JS***************/
+/*
 console.log("Number('100') is : ",Number('100')); // 100
 console.log("Number('abc') is ",Number('abc')); // NaN
 
@@ -306,10 +308,129 @@ var firstInnerArrayElementRemoved = multiDimArray[0].shift();
 //console.log('Length of First Array Element(Inner Array) After "Shifting" is : ', multiDimArray[0].length);
 
 var firstArrayElementRemoved = multiDimArray.shift();
-console.log('First Array Element removed using "Shift" is : ',firstArrayElementRemoved);
-console.log('Length of Array After removing first element using "Shift" is : ', multiDimArray.length);
+//console.log('First Array Element removed using "Shift" is : ',firstArrayElementRemoved);
+//console.log('Length of Array After removing first element using "Shift" is : ', multiDimArray.length);
 
-//Add an element at the beginning of an Array
+/*************Add an element at the beginning of an Array**************************/
 multiDimArray.unshift(myArray); //var myArray = ['Name1', 1, 'Name2', 'Name3',3];
-console.log('\nNewly Added Array element at the beginning is : ',multiDimArray[0]);
-console.log('Length of Array After adding first element using "UnShift" is : ', multiDimArray.length);
+//console.log('\nNewly Added Array element at the beginning is : ',multiDimArray[0]);
+//console.log('Length of Array After adding first element using "UnShift" is : ', multiDimArray.length);
+
+/********************** Functions *****************/
+
+function greeting(anyVar) {
+    console.log('Welcome', anyVar,'to JavaScript Grammar reference!');
+}
+//greeting(fullName);
+
+function subtractTwoNumbers(a,b){
+    return a - b;
+}
+//console.log(subtractTwoNumbers(50,25));
+
+/********* Variable Scope - Global vs Local ***********/
+// Scope refers to the visibility of variables with in & outside of functions
+
+var globalVariable; // This is declared but not initialized.
+//console.log('Type Of Global Variable which is not initialized : ',typeof (globalVariable));
+
+global = '10'; // This is a variable not declared but initialized.
+//console.log('Global Variable which is not declared but initialized with a value directly : ',global);
+
+function scopeCheck(){
+    initializedInsideScopeCheckFunction = 'Local Variable initialized inside function without declaration using "var"';
+    console.log('Uninitialized Global Variable referred inside function : ', globalVariable);
+    console.log('Global variable initialized without declaration using "var" : ', global);
+    var localVariableFromScopeCheck = 'This is a Local Variable from the function "scopeCheck"';
+}
+//console.log(initializedInsideScopeCheckFunction); // This will result in error. Some browsers will treat this variable as global.
+//console.log('Printing a local variable outside : ', localVariableFromScopeCheck); //This will result in error
+
+// Another Example
+function myLocalScope (){
+    var localVar = 'Local Var from "myLocalScope()"';
+    console.log(localVar);
+}
+//myLocalScope();
+//console.log(localVar);// This will result in ReferenceError: localVar is not defined.
+
+// When local variable & global variable have same name
+var mySport = 'Cricket';
+function favSport(){
+    var mySport = 'TableTennis'; // If this is commented, then the variable reference will be global.
+    return mySport;
+}
+//console.log(mySport);
+//console.log(favSport());
+
+// Undefined & return values in function
+
+var sum = 10;
+function addNumber(){
+    sum += 10;
+    //return sum; // Without return statement, this function will be able to pass the result
+}
+//console.log(addNumber()); // Result would be Undefined.
+
+function multiplyByTwo (number) {
+    return number * 2;
+}
+//console.log(multiplyByTwo(10));
+
+/*************** Implementing a simple queue ***********/
+
+function nextInLine (arr,item) {
+    arr.push(item); // This will append the item to the array.
+    return arr.shift(); // This will remove the first item from the array.
+}
+var testArr = [1,2,3,4,5];
+/*console.log('Before adding item to the queue array : ', JSON.stringify(testArr));
+console.log('First element removed/shifted from the array : ',nextInLine(testArr,6));
+console.log('After adding item to the queue array & "Shifing" the first element : ', JSON.stringify(testArr));
+*/
+
+/************ Booleans & IF Condition *******************/
+function trueOrFalse(isItTrue) {
+    if (isItTrue){
+        return "Yes, it's true";
+    }
+    return "No, it's false";
+}
+//console.log(trueOrFalse(true));
+//console.log(trueOrFalse(false));
+
+/*********** Test equality ***********/
+var aNumber = 10;
+var aString = '10';
+function testEqual(aNumber, aString) {
+    if (aNumber == aString) { // Here the '==' operator will convert the both operators into common data type to do comparison.
+        // The operator != can be used to check for Non Equality
+        return "Normally Equal";
+    }
+    return "Not Equal";
+}
+//console.log('Normal Equality Test between ', aNumber, ' & ', aString, ' is : ', testEqual(aNumber, aString)); 
+
+
+/******** Test Strict Equality  **********/
+
+function testStrict(aNumber, aString) {
+    if (aNumber === aString) { // Here aNumber & aString are not same.
+        // The operator '!==' can be used to check strict Non equality
+        return 'Strict --> Equal';
+    }
+    return 'Strict --> Not Equal';
+}
+//console.log('Strict Equality Test between ', aNumber, ' & ', aString, ' is : ', testStrict(aNumber, aString));
+
+/**** If Condition with AND logic  ******/
+
+function teenAgeTest(age) {
+    if (age >= 12 && age <=19) {
+        return 'Teen Age'
+    }
+    return 'Not Teen Age'
+}
+//console.log(teenAgeTest(20));//
+
+
