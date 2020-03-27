@@ -1,5 +1,5 @@
 // This is in line comment.
-console.log("Hello from JavaScript"); // This is also in-line comment. Result can be viewed in the Debug Console.
+console.log("Hello from JavaScript Grammar"); // This is also in-line comment. Result can be viewed in the Debug Console.
 
 //console.log("Uncomment this lines like these to view the results if you need to verify a result ");
 
