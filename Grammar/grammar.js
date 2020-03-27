@@ -13,7 +13,7 @@ Javascript is just a standard, more formally known as ECMAScript. It can be impl
 just like any standard. Chrome's Javascript engine, V8, is written in C++. Firefox's Javascript engine,
 SpiderMonkey (and now TraceMonkey) is also written in C++.
 
-Installation:
+********************Installation******************************:
 JavaScript doesn't require special installation. All browsers can execute Javascript code. However Chrome, FireFox &
 Microsoft Edge has some of the best developer tools/extensions/plugins.
 
