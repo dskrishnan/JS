@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/grammer.js"
+            "program": "${workspaceFolder}/Grammar/grammer.js"
         }
     ]
 }
