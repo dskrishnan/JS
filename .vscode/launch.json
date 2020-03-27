@@ -20,7 +20,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/Grammar/intro.js"
+            "program": "${workspaceFolder}/Grammar/Variables and Functions.js"
         }
     ]
 }
