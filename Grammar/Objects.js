@@ -58,4 +58,140 @@ function phoneticLookUp(val){
     result = lookUp[val];
     return result;
 }
-console.log(phoneticLookUp("delta"));
+//console.log(phoneticLookUp("delta"));
+
+/**** Check Object Property/Key ****/
+function checkDogObj(checkProp){
+    if (ourDog.hasOwnProperty(checkProp)) {
+        return ourDog[checkProp];
+    } else {
+        return "Not Found"
+    }
+}
+//console.log(checkDogObj("name"));
+
+/****  Example for a Complex Object ****/
+
+var myMusic = [
+    { //This is an object inside array
+        "artist":"Maestro",
+        "title" : "Mouna Ragam",
+        "release year": "1986",
+        "formats":[ // This is an array inside object
+            "Cassete",
+            "CD",
+            "tape"
+        ]
+
+    },
+    // Another Object
+    {
+        "artist":"ARR",
+        "title":"Roja",
+        "release year": "1992",
+        "formats":[
+            "cassete",
+            "CD",
+            "tape",
+            "mp3"
+        ]
+    }
+]; // This is similar to JSON
+
+/**** Accessing Nested Objects ****/
+
+var myStorage = {
+    "car": {
+        "inside":{
+            "glove box":"maps",
+            "passenger seat":"crumbs"
+        },
+    },
+    "outside":{
+        "trunk":"jack"
+    }
+};
+var gloveBoxContents = myStorage.car.inside["glove box"];
+//console.log("Content inside the car's glove box is : ",gloveBoxContents);
+
+/**** Accessing Nested Arrays ****/
+
+var myPlants = [
+    {// This object is the first element of the array
+        type:"flowers",
+        list:[
+            "rose",
+            "jasmine",
+            "lotus"
+        ]
+    },
+    {// This object is the second element of the array
+        type:"trees",
+        list:[
+            "Neem",
+            "Coconut",
+            "Tamarind"
+        ]
+    }
+];
+var secondTree = myPlants[1].list[1];
+//console.log("Second Tree is : ",secondTree);
+
+/**** Record Collection ****/
+var musicCollection = {
+    "A100":{
+        "album":"Mouna Ragam",
+        "artist":"Maestro",
+        "tracks":[
+            "Raja Raja Chozhan",
+            "Mandram Vandha"
+        ]
+    },
+    "A101":{
+        "album": "Roja",
+        "artist": "ARR",
+        "tracks": [
+            "Kathal Rojave",
+            "Puthu Vellai Mazhai"
+        ]
+    },
+    "A102": {
+        "album": "Minnale",
+        "artist": "Harris",
+        "tracks": [
+            "Azhagiya Theeye",
+            "Venmathi Venmathiye"
+        ]
+    },
+    "A103": {
+        "album": "Baahubali",
+        "artist": "Keeravaani",
+        "tracks": [
+            "Shiva shivaaya",
+            "Manohari"
+        ]
+    },
+    "A104": {
+        "album": "3",
+        "artist": "Anirudh",
+        "tracks": [
+            "Why this kolaveri",
+            "Po nee po"
+        ]
+    }
+}
+var musicCollectionCopy = JSON.parse(JSON.stringify(musicCollection));
+
+
+function updateRecords(id, prop, value){
+    if (value === ""){
+        delete musicCollection[id][prop];
+    } else if (prop === "tracks"){
+        musicCollection[id][prop] = musicCollection[id][prop] || [];
+        musicCollection[id][prop].push(value);
+    } else {
+        musicCollection[id][prop] = value;
+    }
+    return JSON.stringify(musicCollection);
+}
+console.log(updateRecords("A101","tracks","Panivizhum Iravu"));

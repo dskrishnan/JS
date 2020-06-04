@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/Objects.js"
+            "program": "${workspaceFolder}/Hands On/TernaryOperator.js"
         }
     ]
 }
